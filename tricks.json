@@ -1,0 +1,52 @@
+{
+    "Commands" : [
+        {
+            "Command" : "speak",
+            "Response" : "Benji barks! Arf Arf!",
+            "Mood" : "neutral"
+        },
+        {
+            "Command" : "roll over",
+            "Response" : "Benji rolls over, what a good boy!",
+            "Mood" : "neutral"
+        },
+        {
+            "Command" : "pet",
+            "Response" : "Benji's tail is wagging like crazy!",
+            "Mood" : "good"
+        },
+        {
+            "Command" : "belly rub",
+            "Response" : "Benji loves his belly rubs!",
+            "Mood" : "good"
+        },
+        {
+            "Command" : "scratch behind his ear",
+            "Response" : "WOW! Benji is going wild for that!",
+            "Mood" : "neutral"
+        },
+        {
+            "Command" : "speak",
+            "Response" : "Benji barks! Arf Arf!",
+            "Mood" : "good"
+        },
+        {
+            "Command" : "bath",
+            "Response" : "Benji gets a good scrubbin. He's a very clean little guy now!",
+            "Mood" : "good"
+        },{
+            "Command" : "reprimand",
+            "Response" : "Benji doesn't know what he did, he was just trying to be a good boy. Now he's sad!",
+            "Mood" : "bad"
+        }, {
+            "Command" : "feed",
+            "Response" : "Benji is already full, he doesn't need anymore kibble right now :)",
+            "Mood" : "neutral"
+        }
+    ],
+    "Configurations" : {
+        "Hunger" : "false",
+        "Moods" : "false",
+        "Good Boy" : "true"
+    }
+}

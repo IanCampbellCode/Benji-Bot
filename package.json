@@ -1,0 +1,26 @@
+{
+  "name": "benji-bot",
+  "version": "0.1.0",
+  "description": "A simple discord bot that behaves like a pet, don't forget to leave out some kibble!",
+  "main": "benji-bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IanCampbellCode/Benji-Bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Ian W. Campbell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IanCampbellCode/Benji-Bot/issues"
+  },
+  "homepage": "https://github.com/IanCampbellCode/Benji-Bot#readme",
+  "dependencies": {
+    "discord.io": "^2.5.3"
+  }
+}
