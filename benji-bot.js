@@ -11,7 +11,7 @@ var logindata = JSON.parse(fs.readFileSync('login.json'));
 var botid = logindata['botid'];
 var botusername = logindata['botusername'];
 var bottoken = logindata['bottoken'];
-;var channelid = logindata['channelid']
+;var channelname = logindata['channelname']
 
 var tricksdata = JSON.parse(fs.readFileSync('tricks.json'));
 var commands = tricksdata['Commands'];
@@ -34,15 +34,21 @@ bot.on('ready', () => {
 
   //On message code
 bot.on('message', message => {
-    if(message == !commands) {
-        var benjiWords = "Here is a list of everything Benji will be able to do soon!\n";
-        for(var entry in commands) {
-                benjiWords += commands[entry][Command] + "\n";
+    console.log(message.content);
+    console.log(message.channel.name);
+    console.log(message.channel.name == channelname);
+    console.log(message.content == !commands)
+    if(message.channel.name == channelname){
+        if(message.content == "!commands") {
+            var benjiWords = "Here is a list of everything Benji will be able to do soon!\n";
+            for(var entry in commands) {
+                    benjiWords += commands[entry]['Command'] + "\n";
+            }
+            message.channel.send(benjiWords);
+            console.log("Writing our message: benjiWords");
+        } else if(message == "!benji sleep tight pupper") {
+            console.log("We'll need to disconnect here");
         }
-        message.reply(benjiWords);
-        console.log("Writing our message: benjiWords");
-    } else if(message == "!benji sleep tight pupper") {
-        console.log("We'll need to disconnect here");
     }
 });
 
