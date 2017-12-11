@@ -20,13 +20,6 @@ var config = tricksdata['Configuration'];
 //Create bot
 const bot = new Discord.Client();
 
-/*
-//set bot variables
-bot.token = bottoken;
-bot.id = botid;
-bot.username = botusername;
-*/
-
 //On connection code
 bot.on('ready', () => {
     console.log('I am ready! Logged in as ' + bot.user);
