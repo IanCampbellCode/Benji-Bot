@@ -27,20 +27,23 @@ bot.on('ready', () => {
 
   //On message code
 bot.on('message', message => {
-    console.log(message.content);
-    console.log(message.channel.name);
-    console.log(message.channel.name == channelname);
-    console.log(message.content == !commands)
     if(message.channel.name == channelname){
-        if(message.content == "!commands") {
-            var benjiWords = "Here is a list of everything Benji will be able to do soon!\n";
+        var messageText = message.content.toLowerCase();
+        if(messageText === "!commands") {
+            var benjiWords = "Here is a list of everything Benji will respond to! To interact with Benji type \'benji! \' followed by a command!\n";
+
             for(var entry in commands) {
                     benjiWords += commands[entry]['Command'] + "\n";
             }
             message.channel.send(benjiWords);
             console.log("Writing our message: benjiWords");
-        } else if(message == "!benji sleep tight pupper") {
-            console.log("We'll need to disconnect here");
+        } else if(getFirstWord(messageText) === 'benji!'){
+            var declaration = stripFirstWord(messageText);
+            for(var entry in commands){
+                if(commands[entry]['Command'] === declaration){
+                    message.channel.send(commands[entry]['Response']);
+                }
+            }
         }
     }
 });
@@ -56,9 +59,10 @@ bot.login(bottoken);
 
 //Returns first word if there are multiple words or the entire string if there are not.
 function getFirstWord(message) {
-    var index = message.substr(" ");
+    var index = message.indexOf(' ');
     if(index > -1){
-        return message.substr(0,message.indexOf(" " + 1));
+        return message.substr(0,index);
+
     } else {
         return message;
     }   
@@ -67,9 +71,9 @@ function getFirstWord(message) {
 
 // Removes the first word if there are multiple words or null if there is only one
 function stripFirstWord (message) {
-    var index = message.substr(" ");
+    var index = message.indexOf(' ');
     if(index > -1){
-        return message.substr(message.indexOf(" ") + 1);
+        return message.substr(index + 1);
     } else {
         return "null"
     } 

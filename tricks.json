@@ -26,11 +26,6 @@
             "Mood" : "neutral"
         },
         {
-            "Command" : "speak",
-            "Response" : "Benji barks! Arf Arf!",
-            "Mood" : "good"
-        },
-        {
             "Command" : "bath",
             "Response" : "Benji gets a good scrubbin. He's a very clean little guy now!",
             "Mood" : "good"
