@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/IanCampbellCode/Benji-Bot#readme",
   "dependencies": {
-    "discord.io": "^2.5.3"
+    "discord.js": "^11.2.1"
   }
 }

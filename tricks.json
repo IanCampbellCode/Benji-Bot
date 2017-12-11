@@ -34,11 +34,13 @@
             "Command" : "bath",
             "Response" : "Benji gets a good scrubbin. He's a very clean little guy now!",
             "Mood" : "good"
-        },{
+        },
+        {
             "Command" : "reprimand",
             "Response" : "Benji doesn't know what he did, he was just trying to be a good boy. Now he's sad!",
             "Mood" : "bad"
-        }, {
+        }, 
+        {
             "Command" : "feed",
             "Response" : "Benji is already full, he doesn't need anymore kibble right now :)",
             "Mood" : "neutral"

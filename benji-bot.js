@@ -1,19 +1,77 @@
-var Discord = require('discord.io');
+/*
+Benji-Bot, a simple pet to bring joy to your server :)
+*/
 
-var bot = new Discord.Client({
-    token: "",
-    autorun: true
-});
+//Imports
+const Discord = require('discord.js');
+var fs = require('fs');
 
-bot.on('ready', function() {
-    console.log('Logged in as %s - %s\n', bot.username, bot.id);
-}); 
+//Extract login and command data from the json files
+var logindata = JSON.parse(fs.readFileSync('login.json'));
+var botid = logindata['botid'];
+var botusername = logindata['botusername'];
+var bottoken = logindata['bottoken'];
+;var channelid = logindata['channelid']
 
-bot.on('message', function(user, userID, channelID, message, event) {
-    if (message === "ping") {
-        bot.sendMessage({
-            to: channelID,
-            message: "pong"
-        }); 
+var tricksdata = JSON.parse(fs.readFileSync('tricks.json'));
+var commands = tricksdata['Commands'];
+var config = tricksdata['Configuration'];
+
+//Create bot
+const bot = new Discord.Client();
+
+/*
+//set bot variables
+bot.token = bottoken;
+bot.id = botid;
+bot.username = botusername;
+*/
+
+//On connection code
+bot.on('ready', () => {
+    console.log('I am ready! Logged in as ' + bot.user);
+  });
+
+  //On message code
+bot.on('message', message => {
+    if(message == !commands) {
+        var benjiWords = "Here is a list of everything Benji will be able to do soon!\n";
+        for(var entry in commands) {
+                benjiWords += commands[entry][Command] + "\n";
+        }
+        message.reply(benjiWords);
+        console.log("Writing our message: benjiWords");
+    } else if(message == "!benji sleep tight pupper") {
+        console.log("We'll need to disconnect here");
     }
 });
+
+
+//Connect the bot
+bot.login(bottoken);
+
+//----------------------------------------------------
+//----------------Helper Functions--------------------
+//----------------------------------------------------
+
+
+//Returns first word if there are multiple words or the entire string if there are not.
+function getFirstWord(message) {
+    var index = message.substr(" ");
+    if(index > -1){
+        return message.substr(0,message.indexOf(" " + 1));
+    } else {
+        return message;
+    }   
+}
+
+
+// Removes the first word if there are multiple words or null if there is only one
+function stripFirstWord (message) {
+    var index = message.substr(" ");
+    if(index > -1){
+        return message.substr(message.indexOf(" ") + 1);
+    } else {
+        return "null"
+    } 
+}
