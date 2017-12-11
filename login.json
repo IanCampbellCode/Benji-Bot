@@ -1,4 +1,4 @@
 {
-    "botid" : "BOTID HERE",
-    "botusername" : "BOT USERNAME HERE"
+    "bottoken" : "BOTID HERE",
+    "channelname" : "BOT USERNAME HERE"
 }
